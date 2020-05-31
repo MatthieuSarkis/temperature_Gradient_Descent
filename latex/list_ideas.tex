@@ -1,0 +1,101 @@
+\def\Filedate{2013/02/28} % date this file last revised
+\def\Fileversion{1.0b}    % version of alggeom.cls documented
+
+\documentclass[noams]{alggeom}
+% If you have the AMSLaTeX distribution installed on your system,
+% please delete the "[noams]" option above.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usepackage{subfigure}
+\usepackage{datetime}
+\usepackage{amsmath} % For equation* environment
+\usepackage{xcolor} % To write with colors
+\usepackage{bbm} % For the geometric inverse symbol 1
+\usepackage{bm} % to write equations in bold font
+\usepackage{stmaryrd} % For \llbracket and \rrbracket
+\usepackage{esint} % for the barred integral
+\usepackage{tikz-cd} % For diagrams
+\usepackage{adjustbox} % To scale diagrams
+\usepackage{float} % To force position of figures
+\usepackage{hyperref}  % For texofpdfstring
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*{\code}[1]{{\mdseries\texttt{#1}}}
+\newcommand*{\pkg}[1]{{\mdseries\textsf{#1}}}
+\renewcommand{\topfraction}{0.99}
+\renewcommand{\contentsname}{Contents}
+
+\newcommand{\up}[1]{\upshape #1\itshape} % To be used in theorem like environment to emphasize a term.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\theoremstyle{plain} 
+	\newtheorem{thm}{Theorem}[section] 
+	\newtheorem{prop}{Proposition}[section]
+\theoremstyle{definition} 
+	\newtheorem{defn}[thm]{Definition} 
+\theoremstyle{remark} 
+	\newtheorem{rem}{Remark}
+	\newtheorem{conj}{Conjecture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\title{Random ideas}
+
+\begin{center}\fbox{\textcolor{red}{Last modification: \today,\ \currenttime}}\end{center}
+
+\author{Hor Dashti-Naserabadi}
+\email{hdashti@kias.re.kr}
+\address{Korea Institute for Advanced Study 85 Hoegiro Dongdaemun-gu, Seoul 02455, Republic of Korea}
+
+\author{Matthieu Sarkis}
+\email{sarkis@kias.re.kr}
+\address{Korea Institute for Advanced Study 85 Hoegiro Dongdaemun-gu, Seoul 02455, Republic of Korea}
+
+\dedication{}
+\classification{}
+\keywords{}
+\thanks{}
+
+\begin{abstract}
+Random ideas\vspace*{-15pt}
+\end{abstract}
+
+\maketitle
+
+\vspace*{6pt}\tableofcontents
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{List of ideas}
+
+	\begin{itemize}
+		\item Generalization of mini-batch stochastic gradient descent: variable temperature (size of the mini-batch).
+		\item Consider the mean-squared-error cost function:
+		\begin{equation}
+			\text{MSE}(\bm{\theta})=\frac{1}{m}\sum_{i=1}^m\left(\bm\theta^\textsc t \bf x^{(i)}-y^{(i)}\right)^2
+		\end{equation}
+		The gradient is given by:
+		\begin{equation}
+		\label{eq:gradient_MSE}
+			\bm\nabla_{\bm\theta}\text{MSE}(\bm\theta)=\frac{2}{m}\,\bm X^\textsc t\left(\bm X\bm\theta-\bm y\right)
+		\end{equation}
+	\end{itemize}
+	Why not then generalize the previous idea by replacing in (\ref{eq:gradient_MSE}) the training data matrix $\bm X$ by a submatrix, different at each iteration of the gradient descent. One can choose the features randomly, and adjust the 'temperature' at each step of the gradient descent.
+
+\newpage
+
+\begin{acknowledgements}
+
+\end{acknowledgements}
+
+\begin{thebibliography}{PTW02}
+\end{thebibliography}
+
+\end{document}
